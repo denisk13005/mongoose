@@ -34,7 +34,7 @@ export default function Home({restaurants}) {
 
             <main className={styles.main}>
                 <h1 className={styles.title}>
-                    MongoDB with <a href="https://nextjs.org">Next.js!</a> Example
+                    MongoDB with <a href="https://nextjs.org">Next.js!</a> Examples
                 </h1>
                 <br />
                 <div className={styles.grid}>
