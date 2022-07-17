@@ -4,7 +4,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 export const getServerSideProps = async () => {
-  const restaurants = await fetch("http://localhost:3000/api/list").then(res => res.json() )
+  const restaurants = await fetch("/api/list").then(res => res.json() )
   console.log(restaurants);
   return {
     props:{
