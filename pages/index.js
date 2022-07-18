@@ -41,7 +41,8 @@ export default function Home({restaurants}) {
 
 export const getServerSideProps = async () => {
     let dev = process.env.NODE_ENV !== 'production';
-    const server = dev ?  'http://localhost:3000' : 'https://mongoose-beryl.vercel.app'
+    console.log(dev);
+    const server = dev ?  'http://localhost:3000' : 'http://localhost:3000'
   const restaurants = await fetch(`${server}/api/list`).then(res => res.json() )
   console.log(restaurants);
   return {
