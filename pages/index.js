@@ -1,18 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
-export const getServerSideProps = async () => {
-    let dev = process.env.NODE_ENV !== 'production';
-    console.log(dev);
-    let { DEV_URL, PROD_URL } = process.env;
-  const restaurants = await fetch(`${dev? DEV_URL : PROD_URL}/api/list`).then(res => res.json() )
-  console.log(restaurants);
-  return {
-    props:{
-      restaurants 
-    }
-  }
-}
 
 export default function Home({restaurants}) {
 
@@ -49,4 +37,16 @@ export default function Home({restaurants}) {
             </main>
         </div>
     )
+}
+
+export const getServerSideProps = async () => {
+    let dev = process.env.NODE_ENV !== 'production';
+    console.log(dev);
+  const restaurants = await fetch(`${dev? process.env.DEV_URL : process.env.PROD_URL}/api/list`).then(res => res.json() )
+  console.log(restaurants);
+  return {
+    props:{
+      restaurants 
+    }
+  }
 }
