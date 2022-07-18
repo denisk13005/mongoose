@@ -2,8 +2,11 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
 export const getServerSideProps = async () => {
-    let env = process.env.NODE_ENV === "development" ? process.env.DEV_URL : process.env.PROD_URL
-  const restaurants = await fetch(`${env}/api/list`).then(res => res.json() )
+    const dev = process.env.NODE_ENV !== 'production';
+    console.log(dev);
+
+ const API_BASE_URL = dev ? 'http://localhost:3000' : 'https://mongoose-beryl.vercel.app';
+  const restaurants = await fetch(`${API_BASE_URL}/api/list`).then(res => res.json() )
   console.log(restaurants);
   return {
     props:{
