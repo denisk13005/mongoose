@@ -1,17 +1,14 @@
-import { useEffect, useState } from "react";
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
     let env = process.env.NODE_ENV === "development" ? process.env.DEV_URL : process.env.PROD_URL
   const restaurants = await fetch(`${env}/api/list`).then(res => res.json() )
   console.log(restaurants);
   return {
     props:{
       restaurants 
-    },
-    revalidate : 60
+    }
   }
 }
 
