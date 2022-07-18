@@ -3,7 +3,7 @@ import { connectToDatabase } from "../../lib/mongodb";
 export default async function handler(request, response) {
     
     const { database } = await connectToDatabase();
-    const collection = database.collection(process.env.NEXT_ATLAS_COLLECTION);
+    const collection = database.collection(process.env.NEXT_ATLAS_COLLECTION); //défini la collection de la bdd sélectionnée dans mongodb.js
 
     const results = await collection.find({})
     .project({
