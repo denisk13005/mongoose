@@ -42,7 +42,7 @@ export default function Home({restaurants}) {
 export const getServerSideProps = async () => {
     let dev = process.env.NODE_ENV !== 'production';
     console.log(dev);
-    const server = dev ?  'http://localhost:3000' : 'http://mongoose-45rfmritb-denisk13005.vercel.app'
+    const server = dev ?  'http://localhost:3000' : 'https://mongoose-dk-test.herokuapp.com'
   const restaurants = await fetch(`${server}/api/list`).then(res => res.json() )
   console.log(restaurants);
   return {
