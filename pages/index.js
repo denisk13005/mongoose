@@ -39,7 +39,7 @@ export default function Home({restaurants}) {
     )
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
     let dev = process.env.NODE_ENV !== 'production';
     console.log(dev);
     const server = dev ?  'http://localhost:3000' : 'https://mongoose-dk-test.herokuapp.com'
